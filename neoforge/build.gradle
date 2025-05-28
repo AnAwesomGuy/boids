@@ -20,7 +20,10 @@ configurations {
         canBeResolved = true
         canBeConsumed = false
     }
-
+    common {
+        canBeResolved = true
+        canBeConsumed = false
+    }
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
     developmentNeoForge.extendsFrom common
@@ -31,6 +34,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge"))
+
+    include common("blue.endless:jankson:1.2.3")
 }
 
 sourcesJar {

@@ -48,18 +48,10 @@ subprojects {
     apply plugin: 'dev.architectury.loom'
     apply plugin: 'architectury-plugin'
 
-    configurations {
-        common {
-            canBeResolved = true
-            canBeConsumed = false
-        }
-    }
-
     dependencies {
         // To change the versions see the gradle.properties file
         minecraft "com.mojang:minecraft:${project.minecraft_version}"
         mappings loom.officialMojangMappings()
-        include(implementation(common("blue.endless:jankson:1.2.3"))) // what (idk it works tho)
     }
 
     processResources {
